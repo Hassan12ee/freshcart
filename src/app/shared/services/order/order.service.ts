@@ -14,9 +14,17 @@ export class OrderService {
   }
   constructor(private _HttpClient:HttpClient) { }
 
-  checkout(CartId:string,data:address):Observable<OrderRes>
+  checkoutv(CartId:string,data:address):Observable<OrderRes>
   {
     return this._HttpClient.post<OrderRes>(`${Enviroment.baseUrl}/api/v1/orders/checkout-session/${CartId}?url=${Enviroment.baseUrlWeb}`,{
+      shippingAddress: data
+    },{
+      headers:this.userTokenHeader
+    });
+  }
+  checkoutc(CartId:string,data:address):Observable<OrderRes>
+  {
+    return this._HttpClient.post<OrderRes>(`${Enviroment.baseUrl}/api/v1/orders/${CartId}`,{
       shippingAddress: data
     },{
       headers:this.userTokenHeader

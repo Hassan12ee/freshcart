@@ -16,15 +16,15 @@
 
     @for (p of data.products; track $index) {
       <div class="row bg-gray-300 border-b items-center border-white">
-        <div class="md:w-1/12 p-3">
-          <img src="p.product.imageCover" class="w-full" alt="">
+        <div class="md:w-1/12 py-3">
+          <img [src]="p.product.imageCover" class="w-full" alt="">
         </div>
-        <div class="md:w-10/12 p-3">
+        <div class="md:w-8/12 py-3">
           <h2 class="text-lg font-medium mt-2">{{p.product.title}}</h2>
           <p class="text-main my-3">price : {{p.price}} </p>
           <span (click)="deleteProductFromCart(p.product._id)" class="cursor-pointer mb-2">Remove <i class="fa fa-trash text-main"></i></span>
         </div>
-        <div class="md:w-1/12 p-3"></div>
+        <div class="md:w-2/12 py-3"></div>
         <button (click)="updateProductCartCount(p.product._id,p.count=p.count+1)" class="text-white bg-green-400 rounded p-2">+</button>
         <span>{{p.count}}</span>
         <button (click)="updateProductCartCount(p.product._id,p.count=p.count-1)" class="text-white bg-red-400 rounded p-2">-</button>
