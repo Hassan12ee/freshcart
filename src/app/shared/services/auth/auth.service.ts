@@ -27,7 +27,7 @@ export class AuthService {
 
   signUp(data:RegisterData):Observable<any>
   {
-    return this._HttpClient.post(`${Enviroment.baseUrl}/api/v1/auth/signup`, data);
+    return this._HttpClient.post(`${Enviroment.baseUrl}/api/auth/login`, data);
   }
   Forgetpassword(data:forgotpasswordData):Observable<any>
   {
@@ -44,7 +44,7 @@ export class AuthService {
   }
   signIn(data:loginData):Observable<any>
   {
-    return this._HttpClient.post(`${Enviroment.baseUrl}/api/v1/auth/signin`, data);
+    return this._HttpClient.post(`${Enviroment.baseUrl}/api/auth/login`, data);
   }
   deCodeUserData(){
     const token = JSON.stringify(localStorage.getItem('userToken'));
